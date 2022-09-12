@@ -1,1 +1,1 @@
-cd %homepath%\WebstormProjects\rpc && npm start
+forever rpc.js

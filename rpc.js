@@ -1,22 +1,32 @@
-const RPC = require( 'discord-rpc' );
 const dotenv = require( 'dotenv' );
 
-
 dotenv.config();
-const client_rpc = new RPC.Client( {transport: 'ipc'} );
-const invite_url = 'https://discord.gg/7rHY2sMevU';
 Array.prototype.random = function () {
 	return this[Math.floor( (Math.random() * this.length) )];
 };
 
-(async () => {
-	client_rpc.on( 'connected', async () => {
-		console.log( 'RPC status started' );
-		status( client_rpc );
-	} );
-	setTimeout( () => {throw new Error;}, 3e6 );
-	await client_rpc.connect( process.env.CLIENT_ID );
-})().then();
+async function connect() {
+	try {
+		console.log( 'ok' );
+		const RPC = require( 'discord-rpc' );
+		const client_rpc = new RPC.Client( {transport: 'ipc'} );
+		await (async () => {
+			client_rpc.on( 'connected', async () => {
+				console.log( 'RPC status started' );
+				status( client_rpc );
+			} );
+			client_rpc.on( 'disconnected', async () => {
+				console.log( 'RPC status ended' );
+				await connect();
+			} );
+			setTimeout( () => {throw new Error;}, 3e6 );
+			await client_rpc.connect( process.env.CLIENT_ID );
+		})();
+	} catch (e) {
+		console.log( 'end', e );
+		setTimeout( () => connect(), 5000 );
+	}
+}
 
 function status(client_rpc) {
 	function setActivity() {
@@ -45,6 +55,7 @@ function status(client_rpc) {
 	return setInterval( () => setActivity(), 10000 );
 }
 
+const invite_url = 'https://discord.gg/7rHY2sMevU';
 const rpc_status = [
 	'meeting new people',
 	'making new friends',
@@ -78,7 +89,6 @@ const rpc_status = [
 	'🏃‍♂doing sports',
 	'without a doubt undoubtedly',
 ];
-
 const rpc_emojis = [
 	'💻',
 	'👨‍💻️',
@@ -86,3 +96,5 @@ const rpc_emojis = [
 	'🏋️',
 	'🏖️',
 ];
+
+connect().then();

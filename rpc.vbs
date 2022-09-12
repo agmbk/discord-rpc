@@ -1,0 +1,1 @@
+CreateObject("WScript.Shell").Run chr(34) & "%homepath%\WebstormProjects\rpc\rpc.bat" & Chr(34), 0
