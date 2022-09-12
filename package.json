@@ -1,0 +1,18 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rpc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever rpc.js"
+  },
+  "keywords": [],
+  "author": "Toka",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "dotenv": "^16.0.2",
+    "forever": "^4.0.3"
+  }
+}

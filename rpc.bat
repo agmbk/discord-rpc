@@ -1,0 +1,1 @@
+cd %homepath%\WebstormProjects\rpc && npm start
