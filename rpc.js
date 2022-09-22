@@ -7,7 +7,6 @@ Array.prototype.random = function () {
 
 async function connect() {
 	try {
-		console.log( 'ok' );
 		const RPC = require( 'discord-rpc' );
 		const client_rpc = new RPC.Client( {transport: 'ipc'} );
 		await (async () => {
@@ -23,7 +22,6 @@ async function connect() {
 			await client_rpc.connect( process.env.CLIENT_ID );
 		})();
 	} catch (e) {
-		console.log( 'end', e );
 		setTimeout( () => connect(), 5000 );
 	}
 }
@@ -56,6 +54,7 @@ function status(client_rpc) {
 }
 
 const invite_url = 'https://discord.gg/7rHY2sMevU';
+
 const rpc_status = [
 	'meeting new people',
 	'making new friends',
@@ -65,30 +64,33 @@ const rpc_status = [
 	'looking for techies',
 	'wasting time on YouTube',
 	'dying',
+	'Ol\' English - The Game',
+	'Ready or Not',
+	'Is my life',
 	'installing updates',
 	'having moodswings',
 	'coding the next billion 💲 app',
 	'writing status for you to read',
 	'time travelling',
 	'rest again peacefully',
-	'me against the world',
 	'only god can judge me',
 	'that\'s the way I am',
 	'can\'t be touched',
 	'me against the world',
 	'even the genius ask questions',
-	'looking for a better computer',
-	'contemplating on why Edge exists',
+	'Looking for a better computer',
+	'Contemplating on why Edge exists',
 	'🕵stalking you',
-	'being a Linux advocate',
-	'cursing about JavaScript',
+	'Being a Linux advocate',
+	'Cursing about JavaScript',
 	'₿ mining bitcoins',
-	'being 🅣 🅞 🅚 🅐#9652',
+	'Weing 🅣 🅞 🅚 🅐#9652',
 	'💻₵ØĐɆ',
 	'👀I see YOU reading this',
 	'🏃‍♂doing sports',
-	'without a doubt undoubtedly',
+	'Without a doubt undoubtedly',
 ];
+
 const rpc_emojis = [
 	'💻',
 	'👨‍💻️',
@@ -97,4 +99,5 @@ const rpc_emojis = [
 	'🏖️',
 ];
 
-connect().then();
+connect().then(() => {
+});
