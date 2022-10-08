@@ -48,7 +48,7 @@ function status(client_rpc) {
 			},
 		);
 	}
-	
+
 	setActivity();
 	return setInterval( () => setActivity(), 10000 );
 }
@@ -84,7 +84,7 @@ const rpc_status = [
 	'Being a Linux advocate',
 	'Cursing about JavaScript',
 	'₿ mining bitcoins',
-	'Weing 🅣 🅞 🅚 🅐#9652',
+	'Being 🅣 🅞 🅚 🅐#9652',
 	'💻₵ØĐɆ',
 	'👀I see YOU reading this',
 	'🏃‍♂doing sports',
