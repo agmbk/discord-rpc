@@ -1,1 +1,1 @@
-CreateObject("WScript.Shell").Run chr(34) & ".\rpc.bat" & Chr(34), 0
+CreateObject("WScript.Shell").Run chr(34) & "C:\Users\tomon\IdeaProjects\discord-rpc\rpc.bat" & Chr(34), 0

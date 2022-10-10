@@ -1,1 +1,1 @@
-forever rpc.js
+npm start
